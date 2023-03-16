@@ -67,9 +67,19 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *flameshot[]  = { "flameshot","gui", NULL };/*function for setting flameshot shortcut*/
+static const char *volup[] = { "amixer", "-qM", "set", "Master", "1%+", "umute", NULL };
+static const char *voldown[] = { "amixer", "-qM", "set", "Master", "1%-", "umute", NULL };   
+static const char *mute[] = { "amixer", "-qM", "set", "Master", "toggle", NULL };   
+static const char *lightup[] = { "xbacklight", "-inc", "1", NULL };
+static const char *lightdown[] = { "xbacklight", "-dec", "1", NULL };   
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ MODKEY|ShiftMask,             XK_Up,     spawn,          {.v = lightup} },
+        { MODKEY|ShiftMask,             XK_Down,   spawn,          {.v = lightdown} }, 
+        { MODKEY|ShiftMask,             XK_Right,  spawn,          {.v = volup} },
+        { MODKEY|ShiftMask,             XK_Left,   spawn,          {.v = voldown} },   
+        { MODKEY|ShiftMask,             XK_m,      spawn,          {.v = mute} },   
 	{ MODKEY|ShiftMask,             XK_s,      spawn,   	   {.v = flameshot } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
