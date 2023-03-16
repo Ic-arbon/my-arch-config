@@ -1,0 +1,17 @@
+# github
+Host github.com
+HostName github.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/github_id_rsa
+
+# gitlab
+Host e.coding.net
+HostName e.coding.net
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/coding_id_rsa
+
+
+
+
+
+
