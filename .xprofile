@@ -5,6 +5,8 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 export SDL_IM_MODULE=fcitx
+export GLFW_IM_MODULE=ibus
+export MOZ_X11_EGL=1
 
 #xrandr --output eDP-1 --dpi=96
 
@@ -12,8 +14,9 @@ fcitx5 &
 ~/.fehbg &
 picom -o 0.95 -i 0.88 --detect-rounded-corners --vsync --blur-background-fixed -f -D 5 -c -b
 sh ~/scripts/autostart.sh &
+
 #picom -CGB &
 
-xlayoutdisplay -p HDMI-1-0 -o HDMI-1-0 -o eDP1 
-nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 {ForceFullCompositionPipeline=On, AllowGSYNCCompatible=On}"
+#xlayoutdisplay -p HDMI-1-0 -o HDMI-1-0 -o eDP1 
+#nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 {ForceFullCompositionPipeline=On, AllowGSYNCCompatible=On}"
 #GDK_SCALE=2
